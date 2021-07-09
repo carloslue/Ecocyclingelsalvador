@@ -22,9 +22,9 @@ class ComentarioController extends Controller
         //codigo para ver el total de  registros que tenemos en la tabla//
         
         $total= Comentario::count();
-        $nuevos=($total-1);
+       
 
-        return view('Administrador.comentario.index', compact('comentarios','total','nuevos'))
+        return view('Administrador.comentario.index', compact('comentarios','total'))
             ->with('i', (request()->input('page', 1) - 1) * $comentarios->perPage());
     }
 
