@@ -23,7 +23,7 @@ class ReservaController extends Controller
         $reservas = DB::table('reservas')
             ->join('users', 'users.id', '=', 'reservas.clienteID')
             ->join('rutas', 'rutas.id', '=', 'reservas.rutaID')
-            ->select('reservas.*', 'rutas.descripcion_rutas','users.name')
+            ->select('reservas.*', 'rutas.titulo','users.name')
             ->where('clienteID',auth()->id())
             ->get();
     

@@ -40,19 +40,14 @@
                     <!-- Left Side Of Navbar -->
                     @if (Auth::check())
                         <ul class="menu navbar-nav mr-auto">
-                            <a class="btnn nav-link" href="{{ route('comenta') }}">
-                                <center>
-                                    <p class="lin">comentarios</p>
-                                </center>
-                            </a>
                             <a class="btnn nav-link" href="{{ route('reservaindex') }}">
                                 <center>
-                                    <p class="lin">Reservas realizadas</p>
+                                    <p class="lin">Reservar</p>
                                 </center>
                             </a>
                             <a class="btnn nav-link" href="{{ route('reservasp') }}">
                                 <center>
-                                    <p class="lin"> Promociones</p>
+                                    <p class="lin"> Promociones reservadas</p>
                                 </center>
                             </a>
 
@@ -110,7 +105,7 @@
                                     </a>
                                     <a class="dropdown-item " href="{{ route('logout') }}" onclick="event.preventDefault();
                                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Salir del sistema') }}
+                                        {{ __('Salir') }}
                                     </a>
 
 
@@ -180,6 +175,7 @@
     }
 
     .barra {
+        font-size: 15px;
         background-color: #06680bf8;
         color: white;
 
@@ -214,7 +210,7 @@
         color: rgb(5, 212, 202);
     }
 
-    a:hover {
+    .btnn:hover {
         background-color: rgba(141, 151, 5, 0.733);
         color: rgb(0, 0, 0);
 

@@ -82,6 +82,11 @@ class ReservaspromoController extends Controller
         request()->validate(Reservaspromo::$rules);
 
         $reservaspromo->update($request->all());
+        $reservaspromo->clienteID =auth()->id();
+        $reservaspromo->promocionID = request('promocionID');
+        $reservaspromo->fecha_visita = request('fecha_visita');
+        $reservaspromo->hora = request('hora');
+        $reservaspromo->save();
 
         return redirect()->route('reservasp')
             ->with('success', 'Reserva actualizada');

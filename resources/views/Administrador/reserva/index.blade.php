@@ -18,7 +18,7 @@
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
+                        <div class="alert alert-warning">
                             <p>{{ $message }}</p>
                         </div>
                     @endif
@@ -29,7 +29,7 @@
                             </div>
                         </H6>
                     @endif
-                    <b class="bg-danger">total de registros son: {{ $total }}</b>
+                    <b class="bg-info">Total de registros: {{ $total }}</b>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
@@ -43,7 +43,6 @@
                                         <th>Hora</th>
                                         <th>Cantidad de personas</th>
                                         <th>Telefono</th>
-                                        <th>fecha de creacion</th>
                                         <th>acciones</th>
 
                                         <th></th>
@@ -64,14 +63,10 @@
                                             <td>{{ $reserva->hora }}</td>
                                             <td>{{ $reserva->cantidad }}</td>
                                             <td>{{ $reserva->telefono }}</td>
-                                            <td>{{ $reserva->created_at }}</td>
 
                                             <td>
                                                 <form action="{{ route('reservas.destroy', $reserva->id) }}"
                                                     method="POST">
-                                                    <a class="btn btn-sm btn-primary "
-                                                        href="{{ route('reservas.show', $reserva->id) }}"><i
-                                                            class="fa fa-fw fa-eye"></i> </a>
 
                                                     @csrf
                                                     @method('DELETE')

@@ -20,12 +20,11 @@
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
+                        <div class="alert alert-warnings">
                             <p>{{ $message }}</p>
                         </div>
                     @endif
-                    prueba
-                    <b class="bg-danger">total de registros son: {{ $total }}</b>
+                    <b class="bg-info">Total de registros: {{ $total }}</b>
                     <div class="card-body">
                         <div class="table-responsive table-bordered">
                             <table class="table table-striped table-hover">
@@ -48,9 +47,6 @@
                                             <td>
                                                 <form action="{{ route('comentarios.destroy', $comentario->id) }}"
                                                     method="POST">
-                                                    <a class="btn btn-sm btn-primary "
-                                                        href="{{ route('comentarios.show', $comentario->id) }}"><i
-                                                            class="fa fa-fw fa-eye"></i> </a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i

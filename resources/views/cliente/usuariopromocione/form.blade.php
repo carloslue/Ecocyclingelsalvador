@@ -10,6 +10,6 @@
     </div>
     <div class="box-footer mt20">
         <button type="submit" class="btn btn-success">Enviar sugerencia</button>
-        <button type="reset" class="btn btn-danger">reset</button>
+        
     </div>
 </div>

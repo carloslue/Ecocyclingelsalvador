@@ -20,7 +20,7 @@
                             {{ method_field('PATCH') }}
                             @csrf
 
-                            @include('Administrador.ruta.form')
+                            @include('Administrador.ruta.formEdit')
 
                         </form>
                     </div>

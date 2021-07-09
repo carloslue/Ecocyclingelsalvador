@@ -134,6 +134,7 @@
     .barra {
         background-color: #06680bf8;
         color: white;
+        
 
     }
 
@@ -141,6 +142,7 @@
         background: #00000025;
         width: 90%;
         justify-content: space-between;
+        
     }
 
     .perfil{
@@ -152,6 +154,7 @@
        height: 100%;
         transition: background-color .5s;
         
+        
     }
     
     .btnn{
@@ -162,6 +165,8 @@
 .lin{
     color:aliceblue;
     font-family:bebas neue;
+    padding-top: 4px;
+    font-size: 17px;
 }
 .salir{
     color: rgb(5, 212, 202);

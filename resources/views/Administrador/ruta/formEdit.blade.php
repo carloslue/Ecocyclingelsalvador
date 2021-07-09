@@ -2,9 +2,12 @@
     <div class="box-body">
 
         <div class="form-group">
+            <b style="visibility: hidden">
+          
             {{ Form::label('imagen') }}
-            {{ Form::file('imagen', $ruta->imagen, ['class' => 'form-control' . ($errors->has('imagen') ? ' is-invalid' : ''), 'placeholder' => 'Imagen']) }}
+            {{ Form::text('imagen', $ruta->imagen, ['class' => 'form-control' . ($errors->has('imagen') ? ' is-invalid' : ''), 'placeholder' => 'Imagen']) }}
             {!! $errors->first('imagen', '<div class="invalid-feedback">:message</p>') !!}
+            </b>
         </div>
         <div class="form-group">
             {{ Form::label('titulo') }}

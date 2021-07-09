@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
+                        <div class="alert alert-warning">
                             <p>{{ $message }}</p>
                         </div>
                     @endif
@@ -36,7 +36,7 @@
                             </div>
                         </H6>
                     @endif
-                    <b class="bg-danger">total de registros son: {{ $total }}</b>
+                    <b class="bg-info">Total de registros: {{ $total }}</b>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
@@ -49,7 +49,7 @@
                                         <th>Cantidad de personas</th>
                                         <th>Descripcion</th>
                                         <th>Precio</th>
-                                        <th>Valido asta</th>
+                                        <th>Valido hasta</th>
 
                                         <th></th>
                                     </tr>
@@ -69,9 +69,6 @@
                                             <td>
                                                 <form action="{{ route('promociones.destroy', $promocione->id) }}"
                                                     method="POST">
-                                                    <a class="btn btn-sm btn-primary "
-                                                        href="{{ route('promociones.show', $promocione->id) }}"><i
-                                                            class="fa fa-fw fa-eye"></i> </a>
                                                     <a class="btn btn-sm btn-success"
                                                         href="{{ route('promociones.edit', $promocione->id) }}"><i
                                                             class="fa fa-fw fa-edit"></i> </a>

@@ -16,11 +16,10 @@
                                 {{ __('Reservas de promociones') }}
                             </span>
 
-
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
+                        <div class="alert alert-warning">
                             <p>{{ $message }}</p>
                         </div>
                     @endif
@@ -31,7 +30,7 @@
                             </div>
                         </H6>
                     @endif
-                    <b class="bg-danger">total de registros son: {{ $total }}</b>
+                    <b class="bg-info">Total de registros: {{ $total }}</b>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
@@ -64,9 +63,6 @@
                                             <td>
                                                 <form action="{{ route('reservaspromos.destroy', $reservaspromo->id) }}"
                                                     method="POST">
-                                                    <a class="btn btn-sm btn-primary "
-                                                        href="{{ route('reservaspromos.show', $reservaspromo->id) }}"><i
-                                                            class="fa fa-fw fa-eye"></i> </a>
 
                                                     @csrf
                                                     @method('DELETE')

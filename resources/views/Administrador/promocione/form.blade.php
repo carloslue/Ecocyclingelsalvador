@@ -18,7 +18,7 @@
             </select>
         </div>
         <div class="form-group">
-            {{ Form::label('cantidad') }}
+            {{ Form::label('Cantidad de personas') }}
             {{ Form::number('cantidad', $promocione->cantidad, ['class' => 'form-control' . ($errors->has('cantidad') ? ' is-invalid' : ''), 'placeholder' => 'Cantidad']) }}
             {!! $errors->first('cantidad', '<div class="invalid-feedback">:message</p>') !!}
         </div>
@@ -33,7 +33,7 @@
             {!! $errors->first('precio', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('valido asta') }}
+            {{ Form::label('válido hasta') }}
             {{ Form::date('fecha_vigencia', $promocione->fecha_vigencia, ['class' => 'form-control' . ($errors->has('fecha_vigencia') ? ' is-invalid' : ''), 'placeholder' => 'fecha de validez']) }}
             {!! $errors->first('fecha_vigencia', '<div class="invalid-feedback">:message</p>') !!}
         </div>

@@ -10,7 +10,7 @@
             @foreach ($informacions as $informacion)
                 <div class="col-sm-3">
                     <div class="cad">
-                        <div class="card-header bg-primary">
+                        <div class="header">
                             <span id="card_title">
                                 <h3> {{ __('MISION') }}</h3>
                             </span>
@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-sm-3">
                     <div class="cad">
-                        <div class="card-header bg-primary">
+                        <div class="header">
                             <span id="card_title">
                                 <h3> {{ __('VISION') }}</h3>
                             </span>
@@ -34,7 +34,7 @@
                 </div>
                 <div class="col-sm-3">
                     <div class="cad">
-                        <div class="card-header bg-primary">
+                        <div class="header">
                             <span id="card_title">
                                 <h3> {{ __('OBGETIVO GENERAL') }}</h3>
                             </span>
@@ -47,7 +47,7 @@
 
                 <div class="col-sm-3">
                     <div class="cad">
-                        <div class="card-header bg-primary">
+                        <div class="header">
                             <span id="card_title">
                                 <h3> {{ __('OBGETIVO ESPECIFICO') }}</h3>
                             </span>
@@ -65,19 +65,22 @@
 @endsection
 <style>
     .card-body{
-        background: rgba(5, 243, 203, 0.253);
+        background: rgba(5, 5, 5, 0.589);
         height: 290px;
+        color: white;
     }
-    .card-header{
-        height: 92px;
+    .header{
+        background: #06680bf8;
+        padding: 5px;
+        height: 40px;
         
     }
-    .card{
-        background: rgba(255, 0, 0, 0.89);
+  
+    h3{
+        text-align: center;
+        color: white;
+        font-family: Bebas neue;
+
     }
-    <style>
-    .card-body{
-      
-  } 
-</style>
+  
 </style>

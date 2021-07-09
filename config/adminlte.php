@@ -252,10 +252,7 @@ return [
         ],
 
         // Sidebar items:
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
+       
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
@@ -264,8 +261,8 @@ return [
         [
             'text'        => 'Inicio',
             'url'         => 'home',
-            'icon'        => 'far fa-fw fa-home',
-            'label'       => '5',
+            'icon'        => 'fa fa-home',
+            
             'label_color' => 'danger',
         ],
         ['header' => 'TABLAS',
@@ -275,14 +272,14 @@ return [
         [
             'text' => 'Promociones',
             'route'  => 'promociones',
-            'label'       => 'nuevos' ,
+            /*'label'       => 'nuevos' ,*/
             'label_color' => 'danger',
             'icon' => 'fas fa-fw fa-calendar-alt',
         ],
         [
             'text' => 'Reservas promociones',
             'route'  => 'reservasprom',
-            'icon' => 'fas fa-fw fa-calendar-alt',
+            'icon' => 'fas fa-fw fa-clipboard-check',
         ],
         [
             'text' => 'Reservas',

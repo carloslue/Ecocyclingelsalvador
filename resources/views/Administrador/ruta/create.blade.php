@@ -18,11 +18,7 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route('rutas.store') }}" role="form" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-group">
-                                {{ Form::label('imagen') }}
-                                {{ Form::file('imagen', $ruta->imagen, ['class' => 'form-control' . ($errors->has('imagen') ? ' is-invalid' : ''), 'placeholder' => 'Imagen']) }}
-                                {!! $errors->first('imagen', '<div class="invalid-feedback">:message</p>') !!}
-                            </div>
+                            
                             @include('Administrador.ruta.form')
 
                         </form>

@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
+                        <div class="alert alert-warning">
                             <p>{{ $message }}</p>
                         </div>
                     @endif
@@ -37,7 +37,7 @@
                         </H6>
                     @endif
 
-                    <b class="bg-danger">total de registros son: {{ $total }}</b>
+                    <b class="bg-info">Total de registros: {{ $total }}</b>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">

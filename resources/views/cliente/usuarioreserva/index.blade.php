@@ -18,7 +18,7 @@
 
                              <div class="float-right">
                                 <a href="{{ route('reserva.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('realizar nueva reserva') }}
+                                  {{ __('Nueva Reserva') }}
                                 </a>
                               </div>
                         </div>
@@ -40,7 +40,7 @@
 										<th>Ruta</th>
 										<th>Fecha</th>
 										<th>Hora</th>
-										<th>Cantidad</th>
+										<th>Cantidad de personas</th>
 										<th>Telefono</th>
 
                                         <th><center>Acciones</center></th>
@@ -52,7 +52,7 @@
                                             <td>{{ ++$i }}</td>
                                             
 											
-											<td>{{ $reserva->descripcion_rutas }}</td>
+											<td>{{ $reserva->titulo }}</td>
 											<td>{{ $reserva->fecha }}</td>
 											<td>{{ $reserva->hora }}</td>
 											<td>{{ $reserva->cantidad }}</td>
@@ -88,7 +88,7 @@
 
 
   th{
-      color: rgb(6, 238, 6);
+      color: white;
   }
   td{
       color: aliceblue; 
