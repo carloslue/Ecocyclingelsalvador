@@ -1,0 +1,18 @@
+body{
+  background: #0d2c44;
+}
+footer{
+  width: 114%;
+  height: 20px;
+  background-color: black;
+}
+h2{
+  padding: 15px;
+  font-family: cursive;
+}
+.navbar{
+  width: 114%;
+}
+nav{
+  width: 114%;
+}

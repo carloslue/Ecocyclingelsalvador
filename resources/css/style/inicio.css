@@ -1,0 +1,15 @@
+form{
+  background:#000;
+  /* Sowlo para centrar el formulario ala pagina */
+  margin:auto;
+  font-family: cursive;
+width: 50%;
+}
+
+
+input{
+  margin-bottom:10px;
+  width:20%;
+  padding:20px;
+  background:#00BFFF;
+}

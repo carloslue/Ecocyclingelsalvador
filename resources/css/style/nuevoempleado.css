@@ -1,0 +1,42 @@
+body{
+  background-color: black;
+  background-attachment:fixed;
+  background-size: 100vw 100vh;
+  margin: 0;
+  font-family: monospace;
+
+  }
+  .formulario{
+    width: 60%;
+    margin:auto;
+    background:#1a95d5;
+    padding:20px 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+  }
+  .formulario{
+  margin-top:37px;
+  }
+h1 {
+    color:#010101;
+    text-align: center;
+    margin: 0;
+    font-family: cursive;
+    font-style: 30px;
+    margin-bottom: 20px;
+    }
+.contenido{
+  margin-left:45px;
+margin-right: 30px;
+}
+  input, textarea{
+      width: 43%;
+      margin: 20PX;
+      margin-bottom: 15px;
+      padding: 9px;
+      box-sizing: border-box;
+      font-size: 15px;
+    }
+div{
+  margin-left:210px;
+}
