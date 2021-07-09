@@ -24,7 +24,7 @@
                             <p>{{ $message }}</p>
                         </div>
                     @endif
-                    <b class="bg-danger">comentarios nuevos:{{ $nuevos }} </b>
+                    
                     <b class="bg-danger">total de registros son: {{ $total }}</b>
                     <div class="card-body">
                         <div class="table-responsive table-bordered">
