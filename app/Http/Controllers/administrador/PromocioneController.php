@@ -90,9 +90,18 @@ class PromocioneController extends Controller
    
     public function destroy($id)
     {
-        $promocione = Promocione::find($id)->delete();
+        
 
-        return redirect()->route('promociones')
-            ->with('success', 'Promocion eliminado con exito');
+        try {
+            Promocione::find($id)->delete();
+           
+            return redirect()->route('promociones')
+            ->with('success','Registro eliminado correctamente');
+            } catch (\Illuminate\Database\QueryException $e) {
+               
+                return redirect()->route('promociones')
+                ->with('success','Registro relacionado, imposible de eliminar');
+            }  
+     
     }
 }

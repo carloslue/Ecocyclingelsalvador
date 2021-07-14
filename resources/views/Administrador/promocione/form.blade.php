@@ -33,10 +33,12 @@
             {!! $errors->first('precio', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('válido hasta') }}
-            {{ Form::date('fecha_vigencia', $promocione->fecha_vigencia, ['class' => 'form-control' . ($errors->has('fecha_vigencia') ? ' is-invalid' : ''), 'placeholder' => 'fecha de validez']) }}
-            {!! $errors->first('fecha_vigencia', '<div class="invalid-feedback">:message</p>') !!}
+            {{ Form::label('válido hasta') }} <br>
+            <input class="form-group" type="date" value="{{$promocione->fecha_vigencia}}" name="fecha_vigencia" id="date" min = "<?php echo date("Y-m-d",strtotime(date("Y-m-d")."+ 1 days"));?>">
         </div>
+        <select style="visibility: hidden" name="estado" id="$ruta->estado">
+            <option value="Abilitado">Activo</option>
+         </select>
 
     </div>
     <div class="box-footer mt20">

@@ -274,6 +274,6 @@
 <style type="text/css">
 @font-face {
     font-family:bebas neue;
-    src: url(../fonts/BebasNeue-Regular.ttf);
+    src: url(../../fonts/BebasNeue-Regular.ttf);
 }
 </style>

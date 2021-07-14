@@ -1,16 +1,3 @@
-<style type="text/css">
-    @font-face {
-        font-family:bebas neue;
-        src: url(../fonts/BebasNeue-Regular.ttf);
-    }
-    </style>
-
-    <style>
-.titulo{
-    font-family: bebas neue;
-}
-
-    </style>
 <?php
 
 return [
@@ -308,7 +295,6 @@ return [
         ],
         [
             'text' => 'Usuarios',
-            'route'  => 'cliente',
             'route'  => 'cliente',
             'icon' => 'fas fa-fw fa-user',
         ],

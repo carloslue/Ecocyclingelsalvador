@@ -27,6 +27,7 @@ class PromocioneController extends Controller
             ->join('equipos', 'equipos.id', '=', 'promociones.equipoID')
             ->join('rutas', 'rutas.id', '=', 'promociones.rutasID')
             ->select('promociones.*', 'rutas.imagen', 'rutas.titulo','equipos.descripcion_equipo')
+            ->where("promociones.estado","=",'Abilitado')
             ->get();
             $rutas = Ruta::paginate();
             $comentario = new Comentario();

@@ -19,6 +19,8 @@ class RutaController extends Controller
     {
         //CODIGO PARA OBTENER EL TOTAL DE REGISTROS// 
         $total=Ruta::count();
+
+        //codigo para filtrar datos
         if($request){
             $query =trim($request->get('buscar'));
             $rutas = Ruta::where('titulo','LIKE','%'.$query.'%')
@@ -53,6 +55,7 @@ class RutaController extends Controller
         $ruta->titulo = request('titulo');
         $ruta->descripcion_rutas = request('descripcion_rutas');
         $ruta->costo = request('costo');
+        $ruta->estado = request('estado');
        
         $ruta->save();
 
@@ -77,6 +80,8 @@ class RutaController extends Controller
     }
 
     
+
+
     public function update(Request $request, Ruta $ruta)
     {
         request()->validate(Ruta::$rules);
@@ -87,6 +92,7 @@ class RutaController extends Controller
             $ruta->titulo = request('titulo');
         $ruta->descripcion_rutas = request('descripcion_rutas');
         $ruta->costo = request('costo');
+        $ruta->estado = request('estado');
        
         $ruta->save();
         return redirect()->route('rutas')
@@ -96,9 +102,18 @@ class RutaController extends Controller
    
     public function destroy($id)
     {
-        $ruta = Ruta::find($id)->delete();
 
-        return redirect()->route('rutas')
-            ->with('success', 'Ruta eliminada');
+        try {
+            Ruta::find($id)->delete();
+           
+            return redirect()->route('rutas')
+            ->with('success','Registro eliminado correctamente');
+            } catch (\Illuminate\Database\QueryException $e) {
+               
+                return redirect()->route('rutas')
+                ->with('success','Registro relacionado, imposible de eliminar');
+            }  
+
     }
+
 }

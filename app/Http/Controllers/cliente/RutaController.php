@@ -15,10 +15,11 @@ class RutaController extends Controller
     } 
     public function index()
     {
-        $rutas = Ruta::paginate();
+        $rutas = Ruta::where("estado","=",'Abilitado')
+       ->get();
 
         return view('cliente.usuarioruta.index', compact('rutas'))
-            ->with('i', (request()->input('page', 1) - 1) * $rutas->perPage());
+            ->with('i', (request()->input('page', 1) - 1));
     }
 
     

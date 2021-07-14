@@ -77,15 +77,14 @@ class ReservaspromoController extends Controller
     }
 
     
-    public function update(Request $request, Reservaspromo $reservaspromo)
+    public function update(Request $request, Reservaspromo $reservaspromo, $id)
     {
         request()->validate(Reservaspromo::$rules);
 
-        $reservaspromo->update($request->all());
-        $reservaspromo->clienteID =auth()->id();
-        $reservaspromo->promocionID = request('promocionID');
-        $reservaspromo->fecha_visita = request('fecha_visita');
-        $reservaspromo->hora = request('hora');
+        $reservaspromo= Reservaspromo::findOrFail($id);
+      
+        $reservaspromo->fecha_visita = $request->fecha_visita;
+        $reservaspromo->hora = $request->hora;
         $reservaspromo->save();
 
         return redirect()->route('reservasp')

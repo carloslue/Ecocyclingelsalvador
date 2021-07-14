@@ -33,21 +33,20 @@
                                     <fieldset hidden>
                                     <div class="form-group"  >
                                         {{ Form::label('Promocion numero') }}
-                                        {{ Form::text('promocionID',$promocione->id, ['class' => 'form-control' . ($errors->has('promocionID') ? ' is-invalid' : ''), 'placeholder' => 'Promocionid']) }}
+                                        {{ Form::number('promocionID',$promocione->id, ['class' => 'form-control' . ($errors->has('promocionID') ? ' is-invalid' : ''), 'placeholder' => 'Promocionid']) }}
                                         {!! $errors->first('promocionID', '<div class="invalid-feedback">:message</p>') !!}
                                     </div>
                                 </fieldset>
-                                    <div class="form-group">
-                                        {{ Form::label('fecha_visita') }}
-                                        {{ Form::date('fecha_visita', $promocione->fecha_visita, ['class' => 'form-control' . ($errors->has('fecha_visita') ? ' is-invalid' : ''), 'placeholder' => 'Fecha Visita']) }}
-                                        {!! $errors->first('fecha_visita', '<div class="invalid-feedback">:message</p>') !!}
-                                    </div>
+                                   
                                     <div class="form-group">
                                         {{ Form::label('hora') }}
                                         {{ Form::time('hora', $promocione->hora, ['class' => 'form-control' . ($errors->has('hora') ? ' is-invalid' : ''), 'placeholder' => 'Hora']) }}
                                         {!! $errors->first('hora', '<div class="invalid-feedback">:message</p>') !!}
                                     </div>
-                            
+                                    <div class="form-group">
+                                        {{ Form::label('fecha_visita') }} <br>
+                                        <input class="" type="date" name="fecha_visita" id="date" min = "<?php echo date("Y-m-d",strtotime(date("Y-m-d")."+ 1 days"));?>">
+                                    </div>
                                 </div>
                                 <div class="box-footer mt20">
                                     <button type="submit" class="btn btn-primary">Guardar</button>

@@ -22,8 +22,8 @@ class Reservaspromo extends Migration
             $table->time('hora');
             
             $table->timestamps();
-            $table->foreign('clienteID')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('promocionID')->references('id')->on('promociones')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('clienteID')->references('id')->on('users');
+            $table->foreign('promocionID')->references('id')->on('promociones');
            
         });   //
     }

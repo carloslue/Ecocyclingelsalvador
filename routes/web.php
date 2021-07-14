@@ -44,6 +44,8 @@ Route::get('administrador/informacions',[App\Http\Controllers\administrador\Info
 Route::resource('administrador/rutas',App\Http\Controllers\administrador\RutaController::class)->middleware('auth');
 Route::get('administrador/rutas',[App\Http\Controllers\administrador\RutaController::class,'index'])->name('rutas')->middleware('auth');
 
+
+
 Route::resource('administrador/equipos',App\Http\Controllers\administrador\EquipoController::class)->middleware('auth');
 Route::get('administrador/equipos',[App\Http\Controllers\administrador\EquipoController::class,'index'])->name('equipos')->middleware('auth');
 

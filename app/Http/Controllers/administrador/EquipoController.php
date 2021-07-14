@@ -6,6 +6,8 @@ use App\Models\Equipo;
 use Illuminate\Http\Request;
 
 
+
+
 class EquipoController extends Controller
 {
     public function __construct()
@@ -82,9 +84,17 @@ class EquipoController extends Controller
    
     public function destroy($id)
     {
-        $equipo = Equipo::find($id)->delete();
-
-        return redirect()->route('equipos')
-            ->with('success', 'Equipo eliminado con exito');
+       
+           try {
+            Equipo::find($id)->delete();
+           
+            return redirect()->route('equipos')
+            ->with('success','Registro eliminado correctamente');
+            } catch (\Illuminate\Database\QueryException $e) {
+               
+                return redirect()->route('equipos')
+                ->with('success','Registro relacionado, imposible de eliminar');
+            } 
+        
     }
 }

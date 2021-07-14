@@ -50,6 +50,7 @@
                                         <th>Descripcion</th>
                                         <th>Precio</th>
                                         <th>Valido hasta</th>
+                                        <th>Estado</th>
 
                                         <th></th>
                                     </tr>
@@ -65,6 +66,12 @@
                                             <td>{{ $promocione->descripcion }}</td>
                                             <td>{{ $promocione->precio }}</td>
                                             <td>{{ $promocione->fecha_vigencia }}</td>
+                                            <td>
+                                                @if($promocione->estado == 'Abilitado')
+                                                <button type="button" class="btn btn-sm btn-success">Abilitado</button>
+                                                    @else
+                                                <button type="button" class="btn btn-sm btn-danger">Inhabilitado</button>
+                                                @endif</td>
 
                                             <td>
                                                 <form action="{{ route('promociones.destroy', $promocione->id) }}"

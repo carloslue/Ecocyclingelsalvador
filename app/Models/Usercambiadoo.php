@@ -66,10 +66,10 @@ class User extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function reservaspromos()
+   /* public function reservaspromos()
     {
         return $this->hasMany('App\Models\Reservaspromo', 'clienteID', 'id');
-    }
+    }*/
     
 
 }

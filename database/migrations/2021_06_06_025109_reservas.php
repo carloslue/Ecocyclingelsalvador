@@ -6,11 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class Reservas extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
        Schema::create('reservas', function (Blueprint $table) {
@@ -21,20 +17,13 @@ class Reservas extends Migration
            $table->time('hora');
            $table->integer('cantidad');
            $table->integer('telefono');
-           
-          
            $table->timestamps();
-           $table->foreign('clienteID')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-           $table->foreign('rutaID')->references('id')->on('rutas')->onDelete('cascade')->onUpdate('cascade');
+           $table->foreign('clienteID')->references('id')->on('users');
+           $table->foreign('rutaID')->references('id')->on('rutas');
        });
         //
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
       Schema::dropIfExists('reservas');  //

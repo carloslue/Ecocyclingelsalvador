@@ -21,7 +21,8 @@ class UserController extends Controller
        
             if($request){
                 $query =trim($request->get('buscar'));
-            $users = User::where('name','LIKE','%'.$query.'%')
+            $users = User::where("rol","=","")
+            ->where('name','LIKE','%'.$query.'%')
             
             ->get();
 
@@ -63,9 +64,18 @@ class UserController extends Controller
     
     public function destroy($id)
     {
-        $user = User::find($id)->delete();
 
-        return redirect()->route('users.index')
-            ->with('success', 'Usuario eliminado ');
+
+        try {
+            User::find($id)->delete();
+           
+            return redirect()->route('cliente')
+            ->with('success','Registro eliminado correctamente');
+            } catch (\Illuminate\Database\QueryException $e) {
+               
+                return redirect()->route('cliente')
+                ->with('success','Registro relacionado, imposible de eliminar');
+            }  
+      
     }
 }

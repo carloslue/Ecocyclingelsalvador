@@ -2,9 +2,10 @@
     <div class="box-body">
 
         <div class="form-group">
-            {{ Form::label('imagen') }}
+             {{ Form::label('imagen') }}
             {{ Form::file('imagen', $ruta->imagen, ['class' => 'form-control' . ($errors->has('imagen') ? ' is-invalid' : ''), 'placeholder' => 'Imagen']) }}
-            {!! $errors->first('imagen', '<div class="invalid-feedback">:message</p>') !!}
+            {!! $errors->first('imagen', '<div class="invalid-feedback">:message</p>') !!}" 
+           
         </div>
         <div class="form-group">
             {{ Form::label('titulo') }}
@@ -21,6 +22,11 @@
             {{ Form::number('costo', $ruta->costo, ['class' => 'form-control' . ($errors->has('costo') ? ' is-invalid' : ''), 'placeholder' => 'costo de Rutas']) }}
             {!! $errors->first('costo', '<div class="invalid-feedback">:message</p>') !!}
         </div>
+           
+             <select style="visibility: hidden" name="estado" id="$ruta->estado">
+                    <option value="Abilitado">Activo</option>
+                 </select>
+        
 
     </div>
     <div class="box-footer mt20">

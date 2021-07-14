@@ -37,7 +37,7 @@ class Reservaspromo extends Model
      *
      * @var array
      */
-    protected $fillable = ['clienteID','promocionID','fecha_visita','hora'];
+    protected $fillable = ['fecha_visita','hora'];
 
 
     /**

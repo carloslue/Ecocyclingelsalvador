@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 
+
 class ReservaController extends Controller
 {
     public function __construct()
@@ -17,7 +18,7 @@ class ReservaController extends Controller
      
         $this->middleware('solouser',['only'=> ['index']]);
     }
-   
+  
     public function index()
     {
         $reservas = DB::table('reservas')
@@ -35,7 +36,8 @@ class ReservaController extends Controller
    
     public function create()
     {
-        $rutas=Ruta::all();
+        $rutas=Ruta::where("estado","=",'Abilitado')->get();
+
         $users=User::all();
         $reserva = new Reserva();
         return view('cliente.usuarioreserva.create', compact('reserva','rutas','users'));

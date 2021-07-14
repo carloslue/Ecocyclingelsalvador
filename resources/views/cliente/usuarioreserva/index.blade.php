@@ -55,9 +55,9 @@
 											<td>{{ $reserva->titulo }}</td>
 											<td>{{ $reserva->fecha }}</td>
 											<td>{{ $reserva->hora }}</td>
-											<td>{{ $reserva->cantidad }}</td>
+											<td><center>{{ $reserva->cantidad }}</center></td> 
 											<td>{{ $reserva->telefono }}</td>
-
+                                       
                                             <td>
                                                <center>
                                                 <form action="{{ route('reserva.destroy',$reserva->id) }}" method="POST">

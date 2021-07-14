@@ -19,6 +19,7 @@ class Rutas extends Migration
            $table->string('titulo');
            $table->string('descripcion_rutas');
            $table->decimal('costo');
+           $table->string('estado');
            $table->timestamps();
        }); //
     }

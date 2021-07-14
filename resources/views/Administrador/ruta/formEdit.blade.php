@@ -24,6 +24,22 @@
             {{ Form::number('costo', $ruta->costo, ['class' => 'form-control' . ($errors->has('costo') ? ' is-invalid' : ''), 'placeholder' => 'costo de Rutas']) }}
             {!! $errors->first('costo', '<div class="invalid-feedback">:message</p>') !!}
         </div>
+        <div class="form-group">
+            {{ Form::label('estado') }}
+            @if($ruta->estado == 'Abilitado')
+            <select name="estado" id="$ruta->estado" aria-placeholder="">
+                <option value="Abilitado">{{$ruta->estado}}</option>
+               <option value="Inhabilitado">Inhabilitar</option>
+            </select>
+                @else
+                <select name="estado" id="$ruta->estado" aria-placeholder="">
+                    <option value="Inhabilitado">{{$ruta->estado}}</option>
+                   <option value="Abilitado">Abilitar</option>
+                </select>
+            @endif
+ 
+        </div>
+
 
     </div>
     <div class="box-footer mt20">

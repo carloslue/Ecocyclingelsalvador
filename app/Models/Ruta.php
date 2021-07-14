@@ -26,6 +26,7 @@ class Ruta extends Model
 		'descripcion_rutas' => 'required',
         'titulo' => 'required',
         'costo' => 'required',
+        'estado' => 'required',
     ];
 
     protected $perPage = 20;
@@ -35,8 +36,8 @@ class Ruta extends Model
      *
      * @var array
      */
-    protected $fillable = ['imagen','descripcion_rutas'];
-
+    protected $fillable = ['imagen','titulo','descripcion_rutas','costo','estado'];
+   
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
