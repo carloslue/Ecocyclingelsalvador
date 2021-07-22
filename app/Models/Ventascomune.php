@@ -1,0 +1,44 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+/**
+ * Class Ventascomune
+ *
+ * @property $id
+ * @property $factura
+ * @property $nombre
+ * @property $ruta
+ * @property $precio
+ * @property $fecha
+ * @property $created_at
+ * @property $updated_at
+ *
+ * @package App
+ * @mixin \Illuminate\Database\Eloquent\Builder
+ */
+class Ventascomune extends Model
+{
+    
+    static $rules = [
+		'factura' => 'required',
+		'nombre' => 'required',
+		'ruta' => 'required',
+		'precio' => 'required',
+		'fecha' => 'required',
+    ];
+
+    protected $perPage = 20;
+
+    /**
+     * Attributes that should be mass-assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['factura','nombre','ruta','precio','fecha'];
+
+
+
+}

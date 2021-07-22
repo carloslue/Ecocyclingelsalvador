@@ -29,7 +29,8 @@ class PromocioneController extends Controller
             ->select('promociones.*', 'rutas.imagen', 'rutas.titulo','equipos.descripcion_equipo')
             ->where("promociones.estado","=",'Abilitado')
             ->get();
-            $rutas = Ruta::paginate();
+          
+            $rutas = Ruta::where("rutas.estado","=","abilitado")->paginate();
             $comentario = new Comentario();
           
 
@@ -57,10 +58,17 @@ class PromocioneController extends Controller
    
    
     public function show($id)
-    {
-        $promocione = Promocione::find($id);
 
-        return view('cliente.reservaspromo.formrealizar', compact('promocione'));
+    {
+        $promociones = DB::table('promociones')
+        ->join('equipos', 'equipos.id', '=', 'promociones.equipoID')
+        ->join('rutas', 'rutas.id', '=', 'promociones.rutasID')
+        ->select('promociones.*', 'rutas.imagen', 'rutas.titulo','equipos.descripcion_equipo')
+        ->where("promociones.id","=",$id)
+        ->get();
+        //$promocione = Promocione::find($id);
+
+        return view('cliente.reservaspromo.formrealizar', compact('promociones'));
     }
 
     

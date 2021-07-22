@@ -24,8 +24,7 @@ class Informacion extends Model
     static $rules = [
 		'mision' => 'required',
 		'vision' => 'required',
-		'general' => 'required',
-		'epecifico' => 'required',
+	
     ];
 
     protected $perPage = 20;
@@ -35,7 +34,7 @@ class Informacion extends Model
      *
      * @var array
      */
-    protected $fillable = ['mision','vision','general','epecifico'];
+    protected $fillable = ['mision','vision'];
 
 
 

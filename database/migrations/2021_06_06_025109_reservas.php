@@ -16,7 +16,8 @@ class Reservas extends Migration
            $table->date('fecha');
            $table->time('hora');
            $table->integer('cantidad');
-           $table->integer('telefono');
+           $table->integer('telefono'); 
+           $table->string('estado');
            $table->timestamps();
            $table->foreign('clienteID')->references('id')->on('users');
            $table->foreign('rutaID')->references('id')->on('rutas');

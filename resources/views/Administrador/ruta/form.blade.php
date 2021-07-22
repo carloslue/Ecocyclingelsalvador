@@ -1,12 +1,9 @@
 <div class="box box-info padding-1">
     <div class="box-body">
-
-        <div class="form-group">
-             {{ Form::label('imagen') }}
-            {{ Form::file('imagen', $ruta->imagen, ['class' => 'form-control' . ($errors->has('imagen') ? ' is-invalid' : ''), 'placeholder' => 'Imagen']) }}
-            {!! $errors->first('imagen', '<div class="invalid-feedback">:message</p>') !!}" 
-           
-        </div>
+        <input type="file" value="$ruta->imagen" id="files" name="imagen" />
+        <br />
+        <output id="list"></output>
+       
         <div class="form-group">
             {{ Form::label('titulo') }}
             {{ Form::text('titulo', $ruta->titulo, ['class' => 'form-control' . ($errors->has('descripcion_rutas') ? ' is-invalid' : ''), 'placeholder' => 'titulo de Rutas']) }}
@@ -33,3 +30,42 @@
         <button type="submit" class="btn btn-primary">Guardar</button>
     </div>
 </div>
+
+
+
+<style>
+    .thumb {
+      height: 50px;
+      border: 1px solid #000;
+      margin: 10px 5px 0 0;
+    }
+  </style>
+
+
+   
+  <script>
+        function archivo(evt) {
+            var files = evt.target.files; // FileList object
+       
+            // Obtenemos la imagen del campo "file".
+            for (var i = 0, f; f = files[i]; i++) {
+              //Solo admitimos imágenes.
+              if (!f.type.match('image.*')) {
+                  continue;
+              }
+       
+              var reader = new FileReader();
+       
+              reader.onload = (function(theFile) {
+                  return function(e) {
+                    // Insertamos la imagen
+                   document.getElementById("list").innerHTML = ['<img class="thumb" src="', e.target.result,'" title="', escape(theFile.name), '"/>'].join('');
+                  };
+              })(f);
+       
+              reader.readAsDataURL(f);
+            }
+        }
+       
+        document.getElementById('files').addEventListener('change', archivo, false);
+</script>

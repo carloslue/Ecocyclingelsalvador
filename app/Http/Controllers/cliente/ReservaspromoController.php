@@ -26,6 +26,7 @@ class ReservaspromoController extends Controller
         ->join('users', 'users.id', '=', 'reservaspromos.clienteID')
         ->join('promociones', 'promociones.id', '=', 'reservaspromos.promocionID')
         ->select('reservaspromos.*', 'promociones.rutasID','promociones.cantidad','promociones.precio','promociones.fecha_vigencia','users.name')
+        ->where("reservaspromos.estado","=",'pendiente')
         ->where('clienteID',auth()->id())
         ->get();
        // $reservaspromos = Reservaspromo::paginate();
@@ -47,17 +48,35 @@ class ReservaspromoController extends Controller
     public function store(Request $request)
     {
         request()->validate(Reservaspromo::$rules);
-        $promocione = new Reservaspromo();
+
+
+        $vigencia=request('fechavigencia');
+        $visita=request('fecha_visita');
+       
+
+        if ($visita>$vigencia) {
+            return redirect()->route('reservasp')
+            ->with('danger', 'SU RESERVA NO SE PUDO REALIZAR POR QUE INGRESO UNA FECHA MAYOR A LA DE VIGENCIA DE LA PROMOCION');
+            
+           
+           
+        } else {
+            $promocione = new Reservaspromo();
         $promocione->clienteID =auth()->id();
         $promocione->promocionID = request('promocionID');
         $promocione->fecha_visita = request('fecha_visita');
         $promocione->hora = request('hora');
+        $promocione->estado = request('estado');
         $promocione->save();
 
         //$reservaspromo = Reservaspromo::create($request->all());
 
         return redirect()->route('reservasp')
-            ->with('success', 'Reserva creada con exito');
+            ->with('success', 'SU RESERVA HA SIDO REALIZADA CON EXITO . TE ESPERAMOS');
+        }
+        
+
+       
     }
 
    
@@ -77,18 +96,22 @@ class ReservaspromoController extends Controller
     }
 
     
-    public function update(Request $request, Reservaspromo $reservaspromo, $id)
+    public function update(Request $request, $id)
     {
         request()->validate(Reservaspromo::$rules);
 
         $reservaspromo= Reservaspromo::findOrFail($id);
-      
+       
         $reservaspromo->fecha_visita = $request->fecha_visita;
         $reservaspromo->hora = $request->hora;
+        $reservaspromo->estado = $request->estado;
+       
+
+        
         $reservaspromo->save();
 
         return redirect()->route('reservasp')
-            ->with('success', 'Reserva actualizada');
+            ->with('success', 'Datos Actualizados');
     }
 
     

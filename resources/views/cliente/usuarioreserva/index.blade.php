@@ -30,6 +30,7 @@
                     @endif
 
                     <div class="card-body">
+                        <h5 class="aviso">cuando haga efectiva su reserva el registro sera eliminado</h5>
                         <div class="table-responsive ">
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
@@ -42,6 +43,7 @@
 										<th>Hora</th>
 										<th>Cantidad de personas</th>
 										<th>Telefono</th>
+                                        <th>Estado</th>
 
                                         <th><center>Acciones</center></th>
                                     </tr>
@@ -57,6 +59,7 @@
 											<td>{{ $reserva->hora }}</td>
 											<td><center>{{ $reserva->cantidad }}</center></td> 
 											<td>{{ $reserva->telefono }}</td>
+                                            <td>{{ $reserva->estado }}</td>
                                        
                                             <td>
                                                <center>
@@ -92,6 +95,13 @@
   }
   td{
       color: aliceblue; 
+  }
+
+  .aviso{
+     
+     color: rgb(255, 166, 0);
+      width: 45%;
+        
   }
 
   

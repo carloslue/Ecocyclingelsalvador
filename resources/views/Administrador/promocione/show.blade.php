@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ $promocione->name ?? 'Show Promocione' }}
+  
 @endsection
 
 @section('content')
@@ -17,12 +17,12 @@
                             <a class="btn btn-primary" href="{{ route('promociones') }}"> Regresar</a>
                         </div>
                     </div>
-
+                    @foreach ($promociones as $promocione)
                     <div class="card-body">
 
                         <div class="form-group">
                             <strong>Rutasid:</strong>
-                            {{ $promocione->rutasID }}
+                            {{ $promocione->titulo }}
                         </div>
                         <div class="form-group">
                             <strong>Equipoid:</strong>
@@ -46,6 +46,7 @@
                         </div>
 
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>

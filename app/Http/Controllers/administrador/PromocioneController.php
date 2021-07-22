@@ -21,16 +21,16 @@ class PromocioneController extends Controller
     public function index(Request $request)
     {
      $total=Promocione::count();
+
         if($request){
             $query =trim($request->get('buscar'));
             $Promociones = DB::table('promociones')
             ->join('equipos', 'equipos.id', '=', 'promociones.equipoID')
             ->join('rutas', 'rutas.id', '=', 'promociones.rutasID')
             ->select('promociones.*', 'rutas.titulo','equipos.descripcion_equipo')
+            
             ->where('descripcion','LIKE','%'.$query.'%')
             ->get();
-
-          
 
         return view('Administrador.promocione.index', compact('Promociones','query','total'))
             ->with('i', (request()->input('page', 1) - 1));
@@ -61,9 +61,17 @@ class PromocioneController extends Controller
    
     public function show($id)
     {
-        $promocione = Promocione::find($id);
+     
+        $promociones = DB::table('promociones')
+        ->join('equipos', 'equipos.id', '=', 'promociones.equipoID')
+        ->join('rutas', 'rutas.id', '=', 'promociones.rutasID')
+        ->select('promociones.*', 'rutas.titulo','equipos.descripcion_equipo')
+        ->where("promociones.id","=",$id)
+        ->get();
+        
+       
 
-        return view('Administrador.promocione.show', compact('promocione'));
+        return view('Administrador.promocione.show', compact('promociones'));
     }
 
    

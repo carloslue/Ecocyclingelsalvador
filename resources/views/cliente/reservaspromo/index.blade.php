@@ -24,8 +24,15 @@
                             <p>{{ $message }}</p>
                         </div>
                     @endif
+                    @if ($message = Session::get('danger'))
+                        <div class="alert alert-danger">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @endif
+
 
                     <div class=" cuerpo card-body">
+                        <h5 class="aviso">cuando haga efectiva su reserva el registro sera eliminado</h5>
                         <div class="table-responsive ">
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
@@ -40,6 +47,7 @@
                                         <th>fecha de vigencia</th>
 										<th>Fecha a Visitar</th>
 										<th>Hora</th>
+                                        <th>Estado</th>
 
                                         <th><center>Acciones</center></th>
                                     </tr>
@@ -56,6 +64,7 @@
                                             <td>{{ $reservaspromo->fecha_vigencia }}</td>
 											<td>{{ $reservaspromo->fecha_visita }}</td>
 											<td>{{ $reservaspromo->hora }}</td>
+                                            <td>{{ $reservaspromo->estado }}</td>
 
                                             <td>
                                                <center>
@@ -86,9 +95,15 @@
   } 
 
   th{
-      color: rgb(6, 238, 6);
+      color: rgb(255, 255, 255);
   }
   td{
       color: aliceblue; 
+  }
+  .aviso{
+     
+     color: rgb(255, 166, 0);
+      width: 45%;
+        
   }
 </style>

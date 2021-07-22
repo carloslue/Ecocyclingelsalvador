@@ -20,6 +20,8 @@ class Reservaspromo extends Migration
             $table->unsignedBigInteger('promocionID');
             $table->date('fecha_visita');
             $table->time('hora');
+            $table->string('estado');
+            
             
             $table->timestamps();
             $table->foreign('clienteID')->references('id')->on('users');

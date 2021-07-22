@@ -28,15 +28,7 @@
                             <strong>Vision:</strong>
                             {{ $informacion->vision }}
                         </div>
-                        <div class="form-group">
-                            <strong>General:</strong>
-                            {{ $informacion->general }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Epecifico:</strong>
-                            {{ $informacion->epecifico }}
-                        </div>
-
+                       
                     </div>
                 </div>
             </div>

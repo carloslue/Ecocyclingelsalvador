@@ -39,8 +39,7 @@
 
                                         <th>Mision</th>
                                         <th>Vision</th>
-                                        <th>Obgetivo General</th>
-                                        <th>Obgetivo Epecifico</th>
+                                      
 
                                         <th>
                                             <center>Acciones</center>
@@ -54,8 +53,7 @@
 
                                             <td>{{ $informacion->mision }}</td>
                                             <td>{{ $informacion->vision }}</td>
-                                            <td>{{ $informacion->general }}</td>
-                                            <td>{{ $informacion->epecifico }}</td>
+                                          
 
                                             <td>
 

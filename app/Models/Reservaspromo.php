@@ -28,6 +28,7 @@ class Reservaspromo extends Model
 		'promocionID' => 'required',
 		'fecha_visita' => 'required',
 		'hora' => 'required',
+        'estado' => 'required',
     ];
 
     protected $perPage = 20;
@@ -37,7 +38,7 @@ class Reservaspromo extends Model
      *
      * @var array
      */
-    protected $fillable = ['fecha_visita','hora'];
+    protected $fillable = ['fecha_visita','hora','estado'];
 
 
     /**

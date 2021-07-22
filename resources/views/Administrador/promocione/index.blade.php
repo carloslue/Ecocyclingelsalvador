@@ -76,6 +76,7 @@
                                             <td>
                                                 <form action="{{ route('promociones.destroy', $promocione->id) }}"
                                                     method="POST">
+                                                    
                                                     <a class="btn btn-sm btn-success"
                                                         href="{{ route('promociones.edit', $promocione->id) }}"><i
                                                             class="fa fa-fw fa-edit"></i> </a>

@@ -32,6 +32,7 @@ class Reserva extends Model
 		'hora' => 'required',
 		'cantidad' => 'required',
 		'telefono' => 'required',
+        'estado' => 'required',
     ];
 
     protected $perPage = 20;
@@ -41,7 +42,7 @@ class Reserva extends Model
      *
      * @var array
      */
-    protected $fillable = ['clienteID','rutaID','fecha','hora','cantidad','telefono'];
+    protected $fillable = ['rutaID','fecha','hora','cantidad','telefono'.'estado'];
 
 
     /**

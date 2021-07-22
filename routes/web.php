@@ -58,15 +58,38 @@ Route::get('administrador/user',[App\Http\Controllers\administrador\UserControll
 Route::resource('administrador/reservas',App\Http\Controllers\administrador\ReservaController::class)->middleware('auth');
 Route::get('administrador/reservas',[App\Http\Controllers\administrador\ReservaController::class,'index'])->name('reservas')->middleware('auth');
 
+//reservas normales realizadas
+Route::resource('reservasrealizad',App\Http\Controllers\administrador\ReservasrealizadasController::class)->middleware('auth');
+Route::get('administrador/reservasrealizadas',[App\Http\Controllers\administrador\ReservasrealizadasController::class,'index'])->name('reservasrealizada')->middleware('auth');
+
+//reservas normales Perdidas y canceladas
+Route::resource('reservasperdidas',App\Http\Controllers\administrador\ReservasperdidasController::class)->middleware('auth');
+Route::get('administrador/reservasperdidas',[App\Http\Controllers\administrador\ReservasperdidasController::class,'index'])->name('reservasperdida')->middleware('auth');
+
 
 Route::resource('administrador/promociones',App\Http\Controllers\administrador\PromocioneController::class)->middleware('auth');
 Route::get('administrador/promociones',[App\Http\Controllers\administrador\PromocioneController::class,'index'])->name('promociones')->middleware('auth');
 
+//reservas de promocion
 Route::resource('reservaspromos',App\Http\Controllers\administrador\ReservaspromoController::class)->middleware('auth');
 Route::get('administrador/reservaspromo',[App\Http\Controllers\administrador\ReservaspromoController::class,'index'])->name('reservasprom')->middleware('auth');
 
-Route::resource('ventasfinales',App\Http\Controllers\administrador\VentasfinaleController::class)->middleware('auth');
-Route::get('administrador/ventasfinales',[App\Http\Controllers\administrador\VentasfinaleController::class,'index'])->name('ventaindex')->middleware('auth');
+//reservas promocion realizadas
+Route::resource('reservapromorealizada',App\Http\Controllers\administrador\ReservaspromorealizadasController::class)->middleware('auth');
+Route::get('administrador/reservaspromorealizadas',[App\Http\Controllers\administrador\ReservaspromorealizadasController::class,'index'])->name('reserproindex')->middleware('auth');
+
+
+//reservas promocion perdidas y canceladas
+Route::resource('reservapromoperdida',App\Http\Controllers\administrador\ReservaspromoperdidasController::class)->middleware('auth');
+Route::get('administrador/reservaspromoperdidas',[App\Http\Controllers\administrador\ReservaspromoperdidasController::class,'index'])->name('reservapromoperdidaindex')->middleware('auth');
+
+//ventas de servicios turistico promociones
+Route::resource('ventas',App\Http\Controllers\administrador\VentaController::class)->middleware('auth');
+Route::get('Administrador/ventas',[App\Http\Controllers\administrador\VentaController::class,'index'])->name('ventapromocion')->middleware('auth');
+
+//ventas de servicios turisticos normal
+Route::resource('ventascomunn',App\Http\Controllers\administrador\VentascomuneController::class)->middleware('auth');
+Route::get('Administrador/ventascomunes',[App\Http\Controllers\administrador\VentascomuneController::class,'index'])->name('ventacomun')->middleware('auth');
 
 
 /*rutas para validar si el usuario ingresado es administrador o si es cliente*/

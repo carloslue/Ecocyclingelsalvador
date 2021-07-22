@@ -51,11 +51,7 @@
                                 </center>
                             </a>
 
-                            <a class="btnn nav-link" href="{{ route('informa') }}">
-                                <center>
-                                    <p class="lin">Quienes somos?</p>
-                                </center>
-                            </a>
+                           
                             <a class="btnn nav-link" href="{{ route('inicio') }}">
                                 <center>
                                     <p class="lin">Rutas</p>

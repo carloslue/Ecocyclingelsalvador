@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row">
             @foreach ($informacions as $informacion)
-                <div class="col-sm-3">
+                <div class="col-sm-6">
                     <div class="cad">
                         <div class="header">
                             <span id="card_title">
@@ -20,7 +20,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-6">
                     <div class="cad">
                         <div class="header">
                             <span id="card_title">
@@ -32,31 +32,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-3">
-                    <div class="cad">
-                        <div class="header">
-                            <span id="card_title">
-                                <h3> {{ __('OBGETIVO GENERAL') }}</h3>
-                            </span>
-                        </div>
-                        <div class="card-body">
-                            <td>{{ $informacion->general }}</td>
-                        </div>
-                    </div>
-                </div>
+             
 
-                <div class="col-sm-3">
-                    <div class="cad">
-                        <div class="header">
-                            <span id="card_title">
-                                <h3> {{ __('OBGETIVO ESPECIFICO') }}</h3>
-                            </span>
-                        </div>
-                        <div class="card-body">
-                            <td>{{ $informacion->epecifico }}</td>
-                        </div>
-                    </div>
-                </div>
+              
             @endforeach
             {!! $informacions->links() !!}
         </div>

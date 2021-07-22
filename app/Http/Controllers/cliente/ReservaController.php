@@ -26,6 +26,7 @@ class ReservaController extends Controller
             ->join('rutas', 'rutas.id', '=', 'reservas.rutaID')
             ->select('reservas.*', 'rutas.titulo','users.name')
             ->where('clienteID',auth()->id())
+            ->where("reservas.estado","=","pendiente")
             ->get();
     
 
@@ -56,6 +57,7 @@ class ReservaController extends Controller
        $reserva->hora = request('hora');
        $reserva->cantidad = request('cantidad');
        $reserva->telefono = request('telefono');
+       $reserva->estado = request('estado');
        $reserva->save();
 
         return redirect()->route('reservaindex')
@@ -86,6 +88,9 @@ class ReservaController extends Controller
         request()->validate(Reserva::$rules);
 
         $reserva->update($request->all());
+        $reserva->telefono = request('telefono');
+        $reserva->estado = request('estado');
+        $reserva->save();
        /* $reserva->update ($request->auth()->id());*/
         
 

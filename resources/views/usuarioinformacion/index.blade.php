@@ -4,7 +4,7 @@
     Informacion
 @endsection
 
-@section('content')
+@section('contentt')
 <br>
     <div class="container">
         <div class="row">
@@ -64,24 +64,4 @@
     </div>
     </div>
 @endsection
-<style>
-    .card-body{
-        background: rgba(5, 5, 5, 0.589);
-        height: 290px;
-        color: white;
-    }
-    .header{
-        background: #06680bf8;
-        padding: 5px;
-        height: 40px;
-        
-    }
-  
-    h3{
-        text-align: center;
-        color: white;
-        font-family: Bebas neue;
-
-    }
-  
-</style>
+ 

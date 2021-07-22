@@ -22,7 +22,7 @@
 
                         <div class="card-title">
                             <img class="imagen" src="{{ asset('imagenes/' . $ruta->imagen) }}"
-                                alt=" {{ $ruta->imagen }}">
+                                alt=" {{ $ruta->imagen }}" height="200px">
                         </div>
 
                         <div class="card-body cuerpo">
@@ -58,7 +58,7 @@
                     <div class="card">
                         <div class="card-title">
                             <img class="imagen" src="{{ asset('imagenes/' . $promocione->imagen) }}"
-                                alt=" {{ $promocione->imagen }}">
+                                alt=" {{ $promocione->imagen }}"    >
                         </div>
                         <div class="card-body ">
 
@@ -74,6 +74,8 @@
                             {{ $promocione->descripcion }} <br>
                             <b>Costo:</b>
                             {{ $promocione->precio }} <br>
+                            <b>Fecha de vigencia:</b>
+                            {{ $promocione->fecha_vigencia}} <br>
                             <button class="btn bg-primary"> <a class="btn btn-sm "
                                     href="{{ route('promocion.show', $promocione->id) }}">
                                     <h6>Reservar Promocion </h6>

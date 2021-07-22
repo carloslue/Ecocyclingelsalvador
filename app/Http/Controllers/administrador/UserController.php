@@ -21,8 +21,7 @@ class UserController extends Controller
        
             if($request){
                 $query =trim($request->get('buscar'));
-            $users = User::where("rol","=","")
-            ->where('name','LIKE','%'.$query.'%')
+            $users = User::where('name','LIKE','%'.$query.'%')
             
             ->get();
 

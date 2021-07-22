@@ -30,8 +30,9 @@ class UserController extends Controller
         ->join('equipos', 'equipos.id', '=', 'promociones.equipoID')
         ->join('rutas', 'rutas.id', '=', 'promociones.rutasID')
         ->select('promociones.*', 'rutas.imagen', 'rutas.titulo','equipos.descripcion_equipo')
+        ->where("promociones.estado","=",'abilitado')
         ->get();
-        $rutas = Ruta::paginate();
+        $rutas = Ruta::where("rutas.estado","=","abilitado")->paginate();
         $comentario = new Comentario();
 
         return view('cliente.usuariopromocione.index', compact('Promociones','rutas','comentario'))

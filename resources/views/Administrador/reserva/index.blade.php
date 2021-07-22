@@ -43,6 +43,7 @@
                                         <th>Hora</th>
                                         <th>Cantidad de personas</th>
                                         <th>Telefono</th>
+                                        <th>Estado</th>
                                         <th>acciones</th>
 
                                         <th></th>
@@ -58,22 +59,61 @@
                                                     style="border-radius: 50%;">
                                             </td>
                                             <td>{{ $reserva->name }}</td>
-                                            <td>{{ $reserva->descripcion_rutas }}</td>
+                                            <td>{{ $reserva->titulo }}</td>
                                             <td>{{ $reserva->fecha }}</td>
                                             <td>{{ $reserva->hora }}</td>
                                             <td>{{ $reserva->cantidad }}</td>
                                             <td>{{ $reserva->telefono }}</td>
+                                            <td >
 
-                                            <td>
+                                                @if ($reserva->estado == 'perdida')
+                                                    <button type="button" class="btn btn-sm btn-danger">Perdida</button>
+                                                @elseif($reserva->estado == 'realizada')
+                                                <button type="button" class="btn btn-sm btn-success">Realizada</button>
+                                                @elseif($reserva->estado == 'cancelado')
+                                                <button type="button" class="btn btn-sm btn-warning">Cancelado</button>
+                                                @else
+                                                <button type="button" class="btn btn-sm btn-info">Pendiente</button>
+                                                                         
+                                                @endif
+
+                                            </td>
+                                            <td >
+
+                                                @if ($reserva->estado == 'perdida')
                                                 <form action="{{ route('reservas.destroy', $reserva->id) }}"
                                                     method="POST">
+                                                    <a class="btn btn-sm btn-success" href="{{ route('reservas.edit',$reserva->id) }}"><i class="fa fa-fw fa-edit"></i></a>
 
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i
-                                                            class="fa fa-fw fa-trash"></i> </button>
+                                                  
                                                 </form>
+                                                @elseif($reserva->estado == 'realizada')
+                                                <form action="{{ route('reservas.destroy', $reserva->id) }}"
+                                                    method="POST">
+                                                    <a class="btn btn-sm btn-success" href="{{ route('reservas.edit',$reserva->id) }}"><i class="fa fa-fw fa-edit"></i></a>
+
+                                                    @csrf
+                                                    @method('DELETE')
+                                                  
+                                                </form>
+                                                @elseif($reserva->estado == 'cancelado')
+                                               
+                                                @else
+                                                <form action="{{ route('reservas.destroy', $reserva->id) }}"
+                                                    method="POST">
+                                                    <a class="btn btn-sm btn-success" href="{{ route('reservas.edit',$reserva->id) }}"><i class="fa fa-fw fa-edit"></i></a>
+
+                                                    @csrf
+                                                    @method('DELETE')
+                                                  
+                                                </form>
+                                                                         
+                                                @endif
+
                                             </td>
+                                            
                                         </tr>
                                     @endforeach
                                 </tbody>

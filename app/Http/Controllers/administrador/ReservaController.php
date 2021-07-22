@@ -27,7 +27,7 @@ class ReservaController extends Controller
             $reservas = DB::table('reservas')
             ->join('users', 'users.id', '=', 'reservas.clienteID')
             ->join('rutas', 'rutas.id', '=', 'reservas.rutaID')
-            ->select('reservas.*', 'rutas.descripcion_rutas','users.name','users.imagen')
+            ->select('reservas.*', 'rutas.titulo','users.name','users.imagen')
             ->where('fecha','LIKE','%'.$query.'%')
             ->get();
     
@@ -49,7 +49,32 @@ class ReservaController extends Controller
         return view('Administrador.reserva.show', compact('reserva'));
     }
 
+    public function edit($id)
+    {
+        $reserva = Reserva::find($id);
+
+        return view('Administrador.reserva.edit', compact('reserva'));
+    }
+
     
+    public function update(Request $request, $id)
+    {
+        request()->validate(Reserva::$rules);
+
+        $reserva= Reserva::findOrFail($id);
+       
+        $reserva->fecha = $request->fecha;
+        $reserva->telefono = $request->telefono;
+        $reserva->hora = $request->hora;
+        $reserva->rutaID = $request->rutaID;
+        $reserva->clienteID = $request->clienteID;
+        $reserva->cantidad = $request->cantidad;
+        $reserva->estado = $request->estado;
+        $reserva->save();
+
+        return redirect()->route('reservas')
+            ->with('success', 'Estado Actualizado');
+    }
 
 
     public function destroy($id)

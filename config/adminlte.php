@@ -128,7 +128,7 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-success ',
+    'classes_sidebar' => 'sidebar-dark-warning ',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-dark navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
@@ -240,78 +240,138 @@ return [
 
         // Sidebar items:
        
-        [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
+       
         [
             'text'        => 'Inicio',
             'url'         => 'home',
             'icon'        => 'fa fa-home',
-            
-            'label_color' => 'danger',
+            'icon_color' => 'blue',
         ],
         ['header' => 'TABLAS',
         'icon' => 'fas fa-fw fa-tables',],
         
        
         [
-            'text' => 'Promociones',
+            'text' => 'PROMOCIONES  ',
             'route'  => 'promociones',
             /*'label'       => 'nuevos' ,*/
             'label_color' => 'danger',
             'icon' => 'fas fa-fw fa-calendar-alt',
-        ],
+            'icon_color' => 'primary',
+        ], 
         [
-            'text' => 'Reservas promociones',
-            'route'  => 'reservasprom',
-            'icon' => 'fas fa-fw fa-clipboard-check',
-        ],
-        [
-            'text' => 'Reservas',
-            'route'  => 'reservas',
-            'icon' => 'fas fa-fw fa-clipboard-check',
-        ],
-        [
-            'text' => 'Rutas',
-            'route'  => 'rutas',
-            'icon' => 'fas fa-fw fa-image',
-        ],
-        [
-            'text' => 'Equipos',
-            'route'  => 'equipos',
-            'icon' => 'fas fa-fw fa-bicycle',
-        ],
-        [
-            'text' => 'Informacion empresarial',
-            'route'  => 'informacion',
-            'icon' => 'fas fa-fw fa-clipboard-list',
-        ],
-        [
-            'text' => 'Comentarios',
-            'route'  => 'comentarios',
-            'icon' => 'fas fa-fw fa-comment-dots',
-        ],
-        [
-            'text' => 'Usuarios',
-            'route'  => 'cliente',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-       
-        [
-            'text'    => 'tabla contable',
+            'text'    => 'RESERVAS PROMOCIONES',
             'icon'    => 'fas fa-fw fa-table',
+            'icon_color' => 'primary',
             'submenu' => [
-                [
-                    'text' => 'venta a consumidores finales',
-                    'route'=>'ventaindex',
-                    'icon' => 'fas fa-fw fa-user',
-                ],
+                
                
-              
+                [
+                    'text' => 'Todas',
+                    'route'  => 'reservasprom',
+                    'icon' => 'fas fa-fw fa-clipboard-check',
+                    'icon_color' => 'info',
+                    
+                ],
+                [
+                    'text' => 'Realizadas',
+                    'route'  => 'reserproindex',
+                    'icon' => 'fas fa-fw fa-check-circle',
+                    'icon_color' => 'success',
+                ],
+                [
+                    'text' => 'Perdidas y Canceladas',
+                    'route'  => 'reservapromoperdidaindex',
+                    'icon' => 'fas fa-fw fa-times-circle',
+                    'icon_color' => 'danger',
+                ],
             ],
         ],
+        [
+            'text'    => 'RESERVAS NORMALES ',
+            'icon'    => 'fas fa-fw fa-table',
+            'icon_color' => 'primary',
+            'submenu' => [
+                
+               
+                [
+                    'text' => 'Reservas',
+                    'route'  => 'reservas',
+                    'icon' => 'fas fa-fw fa-clipboard-check',
+                    'icon_color' => 'info',
+                ],
+                [
+                    'text' => 'Realizadas',
+                    'route'  => 'reservasrealizada',
+                    'icon' => 'fas fa-fw fa-check-circle',
+                    'icon_color' => 'success',
+                ],
+                [
+                    'text' => 'Perdidas y canceladas',
+                    'route'  => 'reservasperdida',
+                    'icon' => 'fas fa-fw fa-times-circle',
+                    'icon_color' => 'danger',
+                    
+                ],
+            ],
+        ],
+        [
+            'text'    => 'VENTAS',
+            'icon'    => 'fas fa-fw fa-money-bill-alt',
+            'icon_color' => 'primary',
+            'submenu' => [
+                
+                
+                [
+                    'text' => 'ventas promocion',
+                    'route'  => 'ventapromocion',
+                    'icon' => 'fas fa-fw fa-money-bill-alt',
+                    'icon_color' => 'warning',
+                ],
+                [
+                    'text' => 'ventas normales',
+                    'route'  => 'ventacomun',
+                    'icon' => 'fas fa-fw fa-money-bill-alt',
+                    'icon_color' => 'info',
+                ],
+            ],
+        ],
+        
+       
+        [
+            'text' => 'RUTAS',
+            'route'  => 'rutas',
+            'icon' => 'fas fa-fw fa-image',
+            'icon_color' => 'primary',
+        ],
+        [
+            'text' => 'EQUIPOS',
+            'route'  => 'equipos',
+            'icon' => 'fas fa-fw fa-bicycle',
+            'icon_color' => 'primary',
+        ],
+        [
+            'text' => 'INFO ESPRESARIAL',
+            'route'  => 'informacion',
+            'icon' => 'fas fa-fw fa-clipboard-list',
+            'icon_color' => 'primary',
+        ],
+        [
+            'text' => 'COMENTARIO',
+            'route'  => 'comentarios',
+            'icon' => 'fas fa-fw fa-comment-dots',
+            'icon_color' => 'primary',
+        ],
+        [
+            'text' => 'USUARIO',
+            'route'  => 'cliente',
+            'icon' => 'fas fa-fw fa-user',
+            'icon_color' => 'primary',
+           
+            
+        ]
+       
+       
 
 
         

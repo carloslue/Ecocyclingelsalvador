@@ -17,8 +17,6 @@ class Informacions extends Migration
           $table->bigIncrements('id');
           $table->string('mision');
           $table->string('vision');
-          $table->string('general');
-          $table->string('epecifico');
           $table->timestamps();
       });  //
     }

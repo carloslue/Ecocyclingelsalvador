@@ -74,7 +74,7 @@
                                             <td>{{ $ruta->titulo }}</td>
                                             <td>{{ $ruta->descripcion_rutas }}</td>
                                             <td>{{ $ruta->costo }}</td>
-                                            <td id="resp{{ $ruta->id }}">
+                                            <td >
                                                 
                                                   @if($ruta->estado == 'Abilitado')
                                                   <button type="button" class="btn btn-sm btn-success">Abilitado</button>

@@ -42,6 +42,8 @@
                                         <th>Promocion</th>
                                         <th>Fecha Visita</th>
                                         <th>Hora</th>
+                                        <th>Estado</th>
+
 
                                         <th>Acciones</th>
                                     </tr>
@@ -59,17 +61,58 @@
                                             <td>{{ $reservaspromo->promocionID }}</td>
                                             <td>{{ $reservaspromo->fecha_visita }}</td>
                                             <td>{{ $reservaspromo->hora }}</td>
+                                            <td >
 
-                                            <td>
+                                                @if ($reservaspromo->estado == 'perdida')
+                                                    <button type="button" class="btn btn-sm btn-danger">Perdida</button>
+                                                @elseif($reservaspromo->estado == 'realizada')
+                                                <button type="button" class="btn btn-sm btn-success">Realizada</button>
+                                                @elseif($reservaspromo->estado == 'cancelado')
+                                                <button type="button" class="btn btn-sm btn-warning">Cancelado</button>
+                                                @else
+                                                <button type="button" class="btn btn-sm btn-info">Pendiente</button>
+                                                                         
+                                                @endif
+
+                                            </td>
+                                            <td >
+
+                                                @if ($reservaspromo->estado == 'perdida')
                                                 <form action="{{ route('reservaspromos.destroy', $reservaspromo->id) }}"
                                                     method="POST">
+                                                    <a class="btn btn-sm btn-success" href="{{ route('reservaspromos.edit',$reservaspromo->id) }}"><i class="fa fa-fw fa-edit"></i></a>
 
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i
-                                                            class="fa fa-fw fa-trash"></i> </button>
+                                                  
                                                 </form>
+                                                @elseif($reservaspromo->estado == 'realizada')
+                                                <form action="{{ route('reservaspromos.destroy', $reservaspromo->id) }}"
+                                                    method="POST">
+                                                    <a class="btn btn-sm btn-success" href="{{ route('reservaspromos.edit',$reservaspromo->id) }}"><i class="fa fa-fw fa-edit"></i></a>
+
+                                                    @csrf
+                                                    @method('DELETE')
+                                                  
+                                                </form>
+                                                @elseif($reservaspromo->estado == 'cancelado')
+                                               
+                                                @else
+                                                <form action="{{ route('reservaspromos.destroy', $reservaspromo->id) }}"
+                                                    method="POST">
+                                                    <a class="btn btn-sm btn-success" href="{{ route('reservaspromos.edit',$reservaspromo->id) }}"><i class="fa fa-fw fa-edit"></i></a>
+
+                                                    @csrf
+                                                    @method('DELETE')
+                                                   
+                                                </form>
+                                                                         
+                                                @endif
+
                                             </td>
+                                          
+
+                                          
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -82,3 +125,4 @@
         </div>
     </div>
 @endsection
+
