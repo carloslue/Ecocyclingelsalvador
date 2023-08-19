@@ -13,11 +13,11 @@ class User extends Authenticatable
 
 
     static $rules = [
-		'name' => 'required',
-		'edad' => 'required',
-		'dui' => 'required',
-		'telefono' => 'required',
-		'email' => 'required',
+        'name' => 'required',
+        'edad' => 'required',
+        'dui' => 'required',
+        'telefono' => 'required',
+        'email' => 'required',
     ];
 
     protected $perPage = 20;
@@ -36,7 +36,7 @@ class User extends Authenticatable
         'email',
         'rol',
         'password',
-       
+
     ];
 
     /**
@@ -59,10 +59,17 @@ class User extends Authenticatable
     ];
 
 
-    public function adminlte_desc(){
-        return"Administrador";
+    public function adminlte_desc()
+    {
+        return "Administrador";
     }
-    public function adminlte_profile_url(){
-        return"profile/username";
+    public function adminlte_profile_url()
+    {
+        return "profile/username";
+    }
+    //funcion agregada para que funcione bien la app
+    public function adminlte_image()
+    {
+        return $this->imagen;
     }
 }

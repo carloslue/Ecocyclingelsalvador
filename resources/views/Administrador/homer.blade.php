@@ -32,5 +32,4 @@
     .logo {
         border-radius: 55%;
     }
-
 </style>

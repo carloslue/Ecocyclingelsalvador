@@ -6,11 +6,11 @@
 
 
 @section('content')
- <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ asset('css/cargando.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ asset('css/maquinawrite.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ asset('css/switch.css') }}">
- 
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/cargando.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/maquinawrite.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/switch.css') }}">
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -74,16 +74,17 @@
                                             <td>{{ $ruta->titulo }}</td>
                                             <td>{{ $ruta->descripcion_rutas }}</td>
                                             <td>{{ $ruta->costo }}</td>
-                                            <td >
-                                                
-                                                  @if($ruta->estado == 'Abilitado')
-                                                  <button type="button" class="btn btn-sm btn-success">Abilitado</button>
-                                                      @else
-                                                  <button type="button" class="btn btn-sm btn-danger">Inhabilitado</button>
-                                                  @endif
-                                              
-                                              </td>
-                                             
+                                            <td>
+
+                                                @if ($ruta->estado == 'Abilitado')
+                                                    <button type="button" class="btn btn-sm btn-success">Abilitado</button>
+                                                @else
+                                                    <button type="button"
+                                                        class="btn btn-sm btn-danger">Inhabilitado</button>
+                                                @endif
+
+                                            </td>
+
 
                                             <td>
                                                 <center>
@@ -91,7 +92,7 @@
                                                         <a class="btn btn-sm btn-primary "
                                                             href="{{ route('rutas.show', $ruta->id) }}"><i
                                                                 class="fa fa-fw fa-eye"></i> </a>
-                                                                
+
                                                         <a class="btn btn-sm btn-success"
                                                             href="{{ route('rutas.edit', $ruta->id) }}"><i
                                                                 class="fa fa-fw fa-edit"></i> </a>
@@ -114,5 +115,3 @@
         </div>
     </div>
 @endsection
-
-
